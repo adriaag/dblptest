@@ -130,8 +130,8 @@ async function main() {
       );
 
       await fetchDblpXml(page, url, outputFile);
-        console.log("Waiting 5 seconds before the next request...");
-        await sleep(5000);
+        console.log("Waiting 0.5 seconds before the next request...");
+        await sleep(500);
     }
   } finally {
     await context.close();
