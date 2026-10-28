@@ -9,7 +9,7 @@ const PROFILE_DIR = path.resolve("./dblp-browser-profile");
 const OUTPUT_DIR = path.resolve("./dblp-data");
 
 
-const configPath = path.join(__dirname, '..', 'config.json');
+const configPath = path.join(__dirname,'config.json');
 const config = JSON.parse(fs.readFileSync(configPath, 'utf8'));
 
 // Extract dictionaries from config
