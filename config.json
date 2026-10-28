@@ -1,0 +1,84 @@
+{
+  "authors": {
+    "achraf-hmimou": {
+      "dblpId": "371/7479",
+      "minYear": 2000,
+      "nameVariations": ["Achraf Hmimou"]
+    },
+    "besim-bilalli": {
+      "dblpId": "185/2351",
+      "minYear": 2000,
+      "nameVariations": ["Besim Bilalli"]
+    },
+    "javier-de-jesus-flores-herrera": {
+      "dblpId": "24/10851-2",
+      "minYear": 2000,
+      "nameVariations": ["Javier Flores", "Javier de Jesus Flores Herrera"]
+    },
+    "petar-jovanovic": {
+      "dblpId": "34/1397-1",
+      "minYear": 2000,
+      "nameVariations": ["Petar Jovanovic"]
+    },
+    "sergi-nadal": {
+      "dblpId": "160/1064",
+      "minYear": 2000,
+      "nameVariations": ["Sergi Nadal"]
+    },
+    "oscar-romero": {
+      "dblpId": "r/OscarRomero",
+      "minYear": 2000,
+      "nameVariations": ["Oscar Romero"]
+    },
+    "aniol-bisquert": {
+      "dblpId": "371/7529",
+      "minYear": 2000,
+      "nameVariations": ["Aniol Bisquert"]
+    },
+    "anna-queralt": {
+      "dblpId": "82/6372",
+      "minYear": 2000,
+      "nameVariations": ["Anna Queralt"]
+    },
+    "gerard-pons": {
+      "dblpId": "12/9794-1",
+      "minYear": 2000,
+      "nameVariations": ["Gerard Pons", "Gerard Pons Recasens"]
+    },
+    "marc-maynou": {
+      "dblpId": "347/1146",
+      "minYear": 2000,
+      "nameVariations": ["Marc Maynou"]
+    },
+    "md-ataur-rahman": {
+      "dblpId": "245/2778",
+      "minYear": 2000,
+      "nameVariations": ["Md. Ataur Rahman", "Ataur Rahman"]
+    },
+    "uchechukwu-njoku": {
+      "dblpId": "319/0064",
+      "minYear": 2000,
+      "nameVariations": ["Uchechukwu Njoku", "Uchechukwu F. Njoku"]
+    },
+    "yeasmin-ara": {
+      "dblpId": "340/6499",
+      "minYear": 2000,
+      "nameVariations": ["Yeasmin Ara", "Yeasmin Ara Akter"]
+    },
+    "jose-norberto-mazon-1": {
+      "dblpId": "40/3898",
+      "minYear": 2000,
+      "nameVariations": ["Jose-Norberto Mazón", "Jose-Norberto Mazon"]
+    },
+    "marcos-carvalho": {
+      "dblpId": "",
+      "minYear": 2000,
+      "nameVariations": ["Marcos Carvalho"]
+    },
+    "rediana-koci": {
+      "dblpId": "",
+      "minYear": 2000,
+      "nameVariations": ["Rediana Koci"]
+    }
+  }
+}
