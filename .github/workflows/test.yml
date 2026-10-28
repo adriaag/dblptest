@@ -51,15 +51,37 @@ jobs:
           set -eu
           test -n "$(find dblp-data -maxdepth 1 -type f -name '*.xml' -print -quit)"
           ls -lh dblp-data/*.xml
+      
+      - name: Prepare GitHub Pages site
+        run: |
+          mkdir -p site
+          cp dblp-data/*.xml site/
 
-      - name: Configure GitHub Pages
-        uses: actions/configure-pages@v5
+          # Generate a homepage listing the XML files.
+          {
+            echo '<!doctype html>'
+            echo '<html lang="en">'
+            echo '<head><meta charset="utf-8"><title>DBLP XML files</title></head>'
+            echo '<body><h1>DBLP XML files</h1><ul>'
 
-      - name: Upload XML files for Pages
+            for file in site/*.xml; do
+              [ -f "$file" ] || continue
+              name=$(basename "$file")
+              printf '<li><a href="%s">%s</a></li>\n' "$name" "$name"
+            done
+
+            echo '</ul></body></html>'
+          } > site/index.html
+
+          echo "Files prepared for publication:"
+          find site -maxdepth 1 -type f -print
+
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: dblp-data
+          path: site
 
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+
