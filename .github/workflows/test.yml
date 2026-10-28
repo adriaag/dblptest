@@ -6,11 +6,21 @@ on:
 
 permissions:
   contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
 
 jobs:
-  scrape:
+  scrape-and-publish:
     runs-on: ubuntu-latest
     timeout-minutes: 30
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
 
     steps:
       - name: Checkout repository
@@ -25,7 +35,7 @@ jobs:
       - name: Install Node.js dependencies
         run: npm ci
 
-      - name: Install Playwright Chromium and Linux dependencies
+      - name: Install Chromium and Linux dependencies
         run: npx playwright install --with-deps chromium
 
       - name: Install Xvfb
@@ -34,13 +44,22 @@ jobs:
           sudo apt-get install -y xvfb
 
       - name: Run DBLP scraper
-        run: xvfb-run -a node dblp_scrapper.js
+        run: xvfb-run -a node dblp-scrapper.js
 
-      - name: Upload retrieved XML files
-        if: always()
-        uses: actions/upload-artifact@v4
+      - name: Verify XML files exist
+        run: |
+          set -eu
+          test -n "$(find dblp-data -maxdepth 1 -type f -name '*.xml' -print -quit)"
+          ls -lh dblp-data/*.xml
+
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload XML files for Pages
+        uses: actions/upload-pages-artifact@v3
         with:
-          name: dblp-xml-${{ github.run_number }}
-          path: dblp-data/*.xml
-          if-no-files-found: warn
-          retention-days: 14
+          path: dblp-data
+
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
