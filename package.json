@@ -4,6 +4,7 @@
   "description": "DBLP Publications Fetcher for Research Group",
   "main": "scripts/fetch-publications.js",
   "scripts": {
+    "scrap": "node scripts/scrap-publications",
     "fetch": "node scripts/fetch-publications.js"
   },
   "dependencies": {
