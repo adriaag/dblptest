@@ -49,8 +49,8 @@ jobs:
       - name: Verify XML files exist
         run: |
           set -eu
-          test -n "$(find dblp-data -maxdepth 1 -type f -name '*.xml' -print -quit)"
-          ls -lh dblp-data/*.xml
+          test -n "$(find publications -maxdepth 1 -type f -name '*.xml' -print -quit)"
+          ls -lh publications/*.xml
       
       - name: Create JSON files
         run: npm run fetch
@@ -64,8 +64,8 @@ jobs:
           {
             echo '<!doctype html>'
             echo '<html lang="en">'
-            echo '<head><meta charset="utf-8"><title>DBLP XML files</title></head>'
-            echo '<body><h1>DBLP XML files</h1><ul>'
+            echo '<head><meta charset="utf-8"><title>DBLP JSON files</title></head>'
+            echo '<body><h1>DBLP JSON files</h1><ul>'
 
             for file in site/*.json; do
               [ -f "$file" ] || continue
