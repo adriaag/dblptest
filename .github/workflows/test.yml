@@ -52,10 +52,13 @@ jobs:
           test -n "$(find dblp-data -maxdepth 1 -type f -name '*.xml' -print -quit)"
           ls -lh dblp-data/*.xml
       
+      - name: Create JSON files
+        run: npm run fetch
+      
       - name: Prepare GitHub Pages site
         run: |
           mkdir -p site
-          cp dblp-data/*.xml site/
+          cp data/*.json site/
 
           # Generate a homepage listing the XML files.
           {
@@ -64,7 +67,7 @@ jobs:
             echo '<head><meta charset="utf-8"><title>DBLP XML files</title></head>'
             echo '<body><h1>DBLP XML files</h1><ul>'
 
-            for file in site/*.xml; do
+            for file in site/*.json; do
               [ -f "$file" ] || continue
               name=$(basename "$file")
               printf '<li><a href="%s">%s</a></li>\n' "$name" "$name"
@@ -84,4 +87,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-
